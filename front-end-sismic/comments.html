@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>AngularJS API Consumer</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+        <!-- Custom fonts for this template-->
+        <script src="app.js"></script>
+        <script src="header.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    </head>
+
+    <body class="body" ng-controller="MainController">
+        <header-component></header-component>
+          
+          <form class="form" >
+            <div class="form-div">
+                <label for="featureId">Feature ID</label>
+                <input type="text" class="" id="featureId" aria-describedby="featureIdHelp" ng-model="featureId" min="1">
+            </div>
+            <div class="form-div">
+                <label for="commentBody">Enter your comment here</label>
+                <textarea class="" id="commentBody" rows="5" ng-model="commentBody"></textarea>
+            </div>
+            <button ng-click="createComment(featureId, commentBody)">Submit</button>
+          </form>
+          
+          <footer class="footer">
+            <p>Copyright © 2023 My Website</p>
+          </footer>
+    </body>
+
+    </html>

@@ -1,0 +1,43 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para la tabla */
+.table {
+  margin-top: 20px; /* Espacio superior */
+  width: 100%; /* Ancho completo */
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #dddddd; /* Borde de celdas */
+  text-align: left; /* Alineación de texto a la izquierda */
+  padding: 8px; /* Espaciado interno */
+}
+
+/* Mostrar la tabla cuando hay resultados */
+.table-display {
+  display: table; /* Mostrar la tabla */
+}
+
+/* Estilos para la paginación */
+.pagination {
+  margin-top: 10px; /* Espacio superior */
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+/* Estilos para el footer */
+
+.footer-filter {
+  text-align: center; /* Alineación de texto al centro */
+  padding: 20px 0; /* Espaciado interno superior e inferior */
+  background-color: #f5f5f5; /* Color de fondo */
+  margin: auto;
+  top: 0;
+  bottom: 0; /* Alinear al fondo */
+  width: 100%; /* Ancho completo */
+}

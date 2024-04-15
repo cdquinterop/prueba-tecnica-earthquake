@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>AngularJS API Consumer</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+        <link rel="stylesheet" href="sb-admin-2.min.css">
+        <link rel="stylesheet" href="all.min.css">
+        <link rel="stylesheet" href="style.css">
+
+
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <script src="header.js"></script>
+            
+        <script src="app.js"></script>
+    </head>
+
+    <body class="page-top" ng-controller="MainController">
+        <div class="content-index" ng-init="getAllFeatures()">
+            <header-component></header-component>
+            <div class="filter-magtype">   
+                <h2>Get Characteristics by mag_type</h2>
+                <input type="text" ng-model="magType" placeholder="Enter the mag_type">
+                <button ng-click="getFeaturesByMagType(magType)">Buscar</button>
+            </div>
+                <!-- Main Content -->
+            <div class="content">
+                <!-- Page Heading -->
+                <div ng-if="allFeatures">
+                    <table class="table">
+                        <thead>
+                            <th>ID</th>
+                            <th>External ID</th>
+                            <th>Magnitude</th>
+                            <th>Place</th>
+                            <th>Time</th>
+                            <th>Tsunami</th>
+                            <th>Mag type</th>
+                            <th>Title</th>
+                            <th>Longitude</th>
+                            <th>Latitude</th>
+                            <th>link</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="feature in allFeatures">
+                                <td>{{ feature.id }}</td>
+                                <td>{{feature.attributes.external_id
+                                    }}</td>
+                                <td>{{feature.attributes.magnitude}}</td>
+                                <td>{{ feature.attributes.place}}</td>
+                                <td>{{feature.attributes.time}}</td>
+                                <td>{{feature.attributes.tsunami}}</td>
+                                <td>{{feature.attributes.mag_type}}</td>
+                                <td>{{feature.attributes.title}}</td>
+                                <td>{{feature.attributes.coordinates.longitude}}</td>
+                                <td>{{feature.attributes.coordinates.latitude}}</td>
+                                <td><a href="{{ feature.links.external_url }}" target="_blank">Link</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="number" ng-model="userPer" ng-change="updatePerPage(userPer)" placeholder="Number of records" min="1">
+                    <!-- Botones de navegación de paginación -->
+                    <div class="pagination">
+                        <button
+                            ng-click="getFeaturesPage(currentPage - 1)"
+                            ng-disabled="currentPage === 1">Previous
+                        </button>
+                        <span>{{ currentPage }} / {{ totalPages
+                            }}</span>
+                        <button
+                            ng-click="getFeaturesPage(currentPage + 1)"
+                            ng-disabled="currentPage === totalPages">Next</button>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Copyright © 2023 My Website</p>
+        </footer>
+        <!-- End of Footer -->
+    </body>
+
+</html>
